@@ -5,7 +5,8 @@ const FamilyModel = require("../Model/Family");
 const ElderModel = require("../Model/Elder");
 const TrackActivityModel=require("../Model/TrackActivity");
 const EldersVolunteerTaskModel=require("../Model/EldersTaks");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
+
 
 router.post("/", async (req, res) => {
     const { name, email, password, role } = req.body;
