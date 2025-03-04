@@ -15,7 +15,7 @@ export const FamilyDashBoard = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5002/api/elder/getElders")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/elder/getElders`)
       .then((res) => res.json())
       .then((data) => setElders(data))
       .catch((error) => console.error("Error fetching elders:", error));
@@ -26,7 +26,7 @@ export const FamilyDashBoard = () => {
     const elder = elders.find((e) => e.name === selectedElder);
     if (!elder) return;
 
-    fetch(`http://localhost:5002/api/elder/getTasks?email=${elder.email}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/elder/getTasks?email=${elder.email}`)
       .then((res) => res.json())
       .then((data) => setTasks(data.tasks || []))
       .catch((error) => console.error("Error fetching tasks:", error));
@@ -38,7 +38,7 @@ export const FamilyDashBoard = () => {
     if (!elder) return;
 
     try {
-      const response = await fetch("http://localhost:5002/api/elder/addTask", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/elder/addTask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: elder.email, task, status: "Pending" }),

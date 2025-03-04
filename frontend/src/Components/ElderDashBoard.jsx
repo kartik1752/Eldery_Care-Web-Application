@@ -22,7 +22,7 @@ export const ElderDashBoard = () => {
 
   const fetchActivityData = async () => {
     try {
-      const response = await fetch("http://localhost:5002/api/elder/getActivity", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/elder/getActivity`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
@@ -59,7 +59,7 @@ export const ElderDashBoard = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:5002/api/elder/UpdatetrackActivity", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/elder/UpdatetrackActivity`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -19,7 +19,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-        const response = await fetch("http://localhost:5002/api/login/check", {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login/check`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),

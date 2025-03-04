@@ -4,7 +4,9 @@ const index = require("./Routes/index");
 const cors=require("cors");
 
 app.use(express.json());
-app.use(cors()); 
+
+app.use(cors({ origin: "*" }));
+ 
 
 const { default: mongoose } = require("mongoose");
 

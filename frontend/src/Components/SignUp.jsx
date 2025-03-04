@@ -19,7 +19,7 @@ export const SignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5002/api/signup/', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/signup/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
